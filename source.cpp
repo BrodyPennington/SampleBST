@@ -2,8 +2,8 @@
 #include <iostream>
 
 int main() {
-    BST b;   
-
+  BST b;
+  
   b.insert(56); 
   b.insert(34);  
   b.insert(70);  

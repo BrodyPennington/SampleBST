@@ -61,27 +61,28 @@ bool BST::remove(Node*& node, int val) {
     int deg = node->degree();
     Node *tmp = node->left;
 
-    switch (deg) {
-        case 0:
-            delete node;
-            node = nullptr;
-            break;
-        case 1:
-            if (node->right != nullptr) {
-                tmp = node->right;
-            }
-            delete node;
-            node = tmp;
-            break;
-        case 2:
-            while (tmp->right) {
-                tmp = tmp->right;
-            }
-            node->data = tmp->data;
-            remove(node->left, node->data);
-            break;
-        default:
-            break;
+    switch (deg)
+    {
+    case 0:
+        delete node;
+        node = nullptr;
+        break;
+    case 1:
+        if (node->right != nullptr) {
+            tmp = node->right;
+        }
+        delete node;
+        node = tmp;
+        break;
+    case 2:
+        while (tmp->right != nullptr) {
+            tmp = tmp->right;
+        }
+        node->data = tmp->data;
+        remove(node->left, node->data);
+        break;
+    default:
+        break;
     }
 
     return true;
